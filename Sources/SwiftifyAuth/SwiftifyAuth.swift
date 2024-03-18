@@ -13,7 +13,7 @@ protocol SwiftyAuthDelegate: AnyObject{
 
 
 @available(iOS 13.0, *)
-class SwiftifyAuth{
+public class SwiftifyAuth{
     var clientId: String
     var scopes: String
     var clientSecret: String
