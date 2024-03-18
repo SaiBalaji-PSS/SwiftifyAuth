@@ -17,15 +17,15 @@ public class SwiftifyAuth{
     var clientId: String
     var scopes: String
     var clientSecret: String
-    public var presentationContext: ASWebAuthenticationPresentationContextProviding?
-    var presentationAnchor: ASPresentationAnchor?
+    var presentationContext: ASWebAuthenticationPresentationContextProviding?
+    public var presentationAnchor: ASPresentationAnchor?
     weak var authDelegate: SwiftyAuthDelegate?
     
-    public init(clientId: String,scopes: String,clientSecret: String,presentationAnchor: ASPresentationAnchor) {
+    public init(clientId: String,scopes: String,clientSecret: String,presentationContext: ASWebAuthenticationPresentationContextProviding) {
         self.clientId = clientId
         self.scopes = scopes
         self.clientSecret = clientSecret
-        self.presentationAnchor = presentationAnchor
+        self.presentationContext = presentationContext
     }
     
     
