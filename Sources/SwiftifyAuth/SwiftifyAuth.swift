@@ -17,8 +17,8 @@ public class SwiftifyAuth{
     var clientId: String
     var scopes: String
     var clientSecret: String
-    var presentationContext: ASWebAuthenticationPresentationContextProviding?
-    var presentationAnchor: ASPresentationAnchor?
+    public var presentationContext: ASWebAuthenticationPresentationContextProviding?
+    public var presentationAnchor: ASPresentationAnchor?
     weak var authDelegate: SwiftyAuthDelegate?
     
     public init(clientId: String,scopes: String,clientSecret: String) {
