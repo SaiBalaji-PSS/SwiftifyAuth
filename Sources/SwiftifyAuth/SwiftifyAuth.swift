@@ -21,14 +21,14 @@ public class SwiftifyAuth{
     var presentationAnchor: ASPresentationAnchor?
     weak var authDelegate: SwiftyAuthDelegate?
     
-    init(clientId: String,scopes: String,clientSecret: String) {
+    public init(clientId: String,scopes: String,clientSecret: String) {
         self.clientId = clientId
         self.scopes = scopes
         self.clientSecret = clientSecret
     }
     
     
-    func showAuthScreen(urlScheme: String?,redirectURL: String?){
+    public func showAuthScreen(urlScheme: String?,redirectURL: String?){
         if let urlString = createSpotifyURL(redirectURL: redirectURL){
             if let url = URL(string: urlString){
                 let session = ASWebAuthenticationSession(url: url, callbackURLScheme: urlScheme ?? nil) { [self] url , error  in
