@@ -5,7 +5,7 @@ import Foundation
 import AuthenticationServices
 
 
-protocol SwiftyAuthDelegate: AnyObject{
+public protocol SwiftyAuthDelegate: AnyObject{
     func didAuthenticateSuccess(authenticationToken: String)
     func didAuthenticateFail(error: Error?)
 }
@@ -19,7 +19,7 @@ public class SwiftifyAuth: NSObject,ASWebAuthenticationPresentationContextProvid
     var clientSecret: String
   
     public var presentationAnchor: ASPresentationAnchor?
-    weak var authDelegate: SwiftyAuthDelegate?
+    public weak var authDelegate: SwiftyAuthDelegate?
     
     public init(clientId: String,scopes: String,clientSecret: String) {
         self.clientId = clientId
