@@ -13,19 +13,19 @@ protocol SwiftyAuthDelegate: AnyObject{
 
 
 @available(iOS 13.0, *)
-public class SwiftifyAuth{
+public class SwiftifyAuth: NSObject,ASWebAuthenticationPresentationContextProviding{
     var clientId: String
     var scopes: String
     var clientSecret: String
-    var presentationContext: ASWebAuthenticationPresentationContextProviding?
+  
     public var presentationAnchor: ASPresentationAnchor?
     weak var authDelegate: SwiftyAuthDelegate?
     
-    public init(clientId: String,scopes: String,clientSecret: String,presentationContext: ASWebAuthenticationPresentationContextProviding) {
+    public init(clientId: String,scopes: String,clientSecret: String) {
         self.clientId = clientId
         self.scopes = scopes
         self.clientSecret = clientSecret
-        self.presentationContext = presentationContext
+        
     }
     
     
@@ -45,7 +45,7 @@ public class SwiftifyAuth{
                             
                     }
                 }
-                session.presentationContextProvider = presentationContext
+                session.presentationContextProvider = self
                 session.start()
             }
            
@@ -114,7 +114,7 @@ public class SwiftifyAuth{
 
 @available(iOS 13.0, *)
 extension SwiftifyAuth{
-    func presentationAnchor(for session: ASWebAuthenticationSession) -> ASPresentationAnchor {
+    public func presentationAnchor(for session: ASWebAuthenticationSession) -> ASPresentationAnchor {
         return presentationAnchor ?? ASPresentationAnchor()
     }
 }
